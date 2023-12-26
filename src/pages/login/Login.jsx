@@ -9,6 +9,8 @@ import { LoginForm } from "./components/LoginForm.jsx";
 import { login } from "../../shared/services/authApiCalls.js";
 import { setToken } from "../../core/slices/authSlice.js";
 
+const backgroundImage = "gym_images/login-background.jpg";
+
 export const Login = () => {
   // const notify = (message) => toast.error(message);
   const navigate = useNavigate();
@@ -42,24 +44,29 @@ export const Login = () => {
   };
 
   return (
-    <Grid container style={{ overflow: "hidden" }}>
+    <Grid
+      container
+      style={{
+        overflow: "hidden",
+        height: "91.3vh",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+      }}
+    >
       <Grid
         item
-        xs={12}
-        sm={6}
+        sm={4.7}
         sx={{
-          my: 17,
-          mx: "auto",
-          height: "55vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           border: "1px solid",
+          background: "#DCDCDC",
         }}
       >
         <Typography variant="h4">LOGIN</Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <Box noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: "80%" }}>
           <LoginForm />
           <Button
             type="submit"
@@ -70,11 +77,12 @@ export const Login = () => {
             Enviar
           </Button>
           <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Button onClick={() => handleNavigate("/register")}>
-                ¿No tienes una cuenta? Regístrate
-              </Button>
-            </Grid>
+            <Button
+              onClick={() => handleNavigate("/register")}
+              sx={{ color: "#000000" }}
+            >
+              ¿No tienes una cuenta? Regístrate
+            </Button>
           </Grid>
         </Box>
       </Grid>
