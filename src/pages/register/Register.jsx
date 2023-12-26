@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { RegisterForm } from "./components/RegisterForm";
 import { register } from "../../shared/services/authApiCalls.js";
 
+const backgroundImage = "gym_images/login-background.jpg";
+
 export const Register = () => {
   // const notify = (message) => toast.error(message);
   const navigate = useNavigate();
@@ -18,9 +20,9 @@ export const Register = () => {
     }, 300);
   };
 
-  const handleUserRegister = async (user) => {
+  const handleUserRegister = async (newUser) => {
     try {
-      await register(user);
+      await register(newUser);
       handleNavigate("/login");
     } catch (error) {
       console.log(error);
@@ -35,53 +37,33 @@ export const Register = () => {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    await handleUserRegister(user);
+    await handleUserRegister(newUser);
   };
 
   return (
-    <Grid container style={{ overflow: "hidden" }}>
-      <Grid item xs={12} sm={6}>
-        <Box
-          style={{
-            width: "auto",
-            height: "90vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img
-            style={{
-              height: "100%",
-              width: "100%",
-              objectFit: "cover",
-            }}
-            src="src/assets/tattoo_studio/TattooStudioLogin.png"
-            alt="Tattoo Studio"
-          />
-        </Box>
-      </Grid>
+    <Grid
+      container
+      style={{
+        overflow: "hidden",
+        height: "91.3vh",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+      }}
+    >
       <Grid
         item
-        xs={12}
-        sm={4}
+        sm={4.7}
         sx={{
-          my: 16,
-          mx: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid",
+          background: "#DCDCDC",
         }}
       >
-        <Typography
-          variant="h4"
-          style={{
-            color: "#ad9859",
-          }}
-        >
-          Registrarse
-        </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <Typography variant="h4">REGISTRARSE</Typography>
+        <Box noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: "80%" }}>
           <RegisterForm />
           <Button
             type="submit"
@@ -92,11 +74,12 @@ export const Register = () => {
             Enviar
           </Button>
           <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Button onClick={() => handleNavigate("/login")}>
-                ¿Ya tienes una cuenta? Inicia sesión
-              </Button>
-            </Grid>
+            <Button
+              onClick={() => handleNavigate("/login")}
+              sx={{ color: "#000000" }}
+            >
+              ¿Ya tienes una cuenta? Inicia sesión
+            </Button>
           </Grid>
         </Box>
       </Grid>
