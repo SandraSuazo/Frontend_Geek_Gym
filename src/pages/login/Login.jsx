@@ -30,7 +30,7 @@ export const Login = () => {
       });
     } catch (error) {
       console.log(error);
-      // notify(`${error.response.status}: ${error.response.data}`);
+      // notify(`${error?.response.status}: ${error?.response.data}`);
     }
   };
 
@@ -47,7 +47,6 @@ export const Login = () => {
     <Grid
       container
       style={{
-        overflow: "hidden",
         height: "91.3vh",
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -66,7 +65,12 @@ export const Login = () => {
         }}
       >
         <Typography variant="h4">LOGIN</Typography>
-        <Box noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: "80%" }}>
+        <Box
+          component="form"
+          noValidate
+          onSubmit={handleSubmit}
+          sx={{ mt: 3, width: "80%" }}
+        >
           <LoginForm />
           <Button
             type="submit"
