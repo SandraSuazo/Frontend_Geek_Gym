@@ -11,19 +11,43 @@ export const DesktopMenu = ({ handleNavigate }) => {
     >
       <Button
         onClick={() => handleNavigate("/about")}
-        sx={{ my: 2, color: "#DCDCDC", display: "block" }}
+        sx={{
+          my: 2,
+          color: "#DCDCDC",
+          display: "block",
+          "&:hover": {
+            color: "#000000",
+            backgroundColor: "#92ce04",
+          },
+        }}
       >
         CONÓCENOS
       </Button>
       <Button
         onClick={() => handleNavigate("/activities")}
-        sx={{ my: 2, color: "#DCDCDC", display: "block" }}
+        sx={{
+          my: 2,
+          color: "#DCDCDC",
+          display: "block",
+          "&:hover": {
+            color: "#000000",
+            backgroundColor: "#92ce04",
+          },
+        }}
       >
         ACTIVIDADES
       </Button>
       <Button
         onClick={() => handleNavigate("/")}
-        sx={{ my: 2, color: "#DCDCDC", display: "block" }}
+        sx={{
+          my: 2,
+          color: "#DCDCDC",
+          display: "block",
+          "&:hover": {
+            color: "#000000",
+            backgroundColor: "#92ce04",
+          },
+        }}
       >
         NUTRICIÓN
       </Button>

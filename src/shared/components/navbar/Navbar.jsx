@@ -37,7 +37,7 @@ export const NavBar = () => {
           <Typography
             onClick={() => handleNavigate("/")}
             sx={{
-              mr: 2,
+              ml: 2,
               display: { xs: "none", md: "flex" },
               cursor: "pointer",
             }}
@@ -53,7 +53,6 @@ export const NavBar = () => {
           <Typography
             onClick={() => handleNavigate("/")}
             sx={{
-              mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               cursor: "pointer",

@@ -38,14 +38,14 @@ export const UserMenu = ({ token }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 0 }}>
+    <Box sx={{ flexGrow: 0, mx: 1.9 }}>
       <Tooltip>
         <Button onClick={handleOpenUserMenu} type="submit" variant="contained">
           ÁREA CLIENTES
         </Button>
       </Tooltip>
       <Menu
-        sx={{ mt: "45px" }}
+        sx={{ mt: "2.5em" }}
         id="menu-appbar"
         anchorEl={anchorElUser}
         anchorOrigin={{
