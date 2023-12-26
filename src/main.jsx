@@ -8,21 +8,13 @@ import App from "./App.jsx";
 import store from "./core/store.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
-import { lightTheme } from "./shared/themes/lightTheme.js";
-import { darkTheme } from "./shared/themes/darkTheme.js";
+import { themes } from "./shared/themes/themes.js";
 
 const persistor = persistStore(store);
 
-const getTheme = () => {
-  const prefersLightMode = window.matchMedia(
-    "(prefers-color-scheme: light)"
-  ).matches;
-  return prefersLightMode ? lightTheme : darkTheme;
-};
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={getTheme}>
+    <ThemeProvider theme={themes}>
       <CssBaseline />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
