@@ -1,18 +1,20 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 // import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { RegisterForm } from "./components/RegisterForm";
-import { register } from "../../shared/services/authApiCalls.js";
+import { login, register } from "../../shared/services/authApiCalls.js";
+import { setToken } from "../../core/slices/authSlice.js";
 
 const backgroundImage = "gym_images/login-background.jpg";
 
 export const Register = () => {
   // const notify = (message) => toast.error(message);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleNavigate = (path) => {
     setTimeout(() => {
@@ -20,10 +22,13 @@ export const Register = () => {
     }, 300);
   };
 
-  const handleUserRegister = async (newUser) => {
+  const handleUserRegister = async (user) => {
     try {
-      await register(newUser);
-      handleNavigate("/login");
+      await register(user);
+      await login(user).then(({ data }) => {
+        dispatch(setToken(data.token));
+        handleNavigate("/");
+      });
     } catch (error) {
       console.log(error);
       // notify(`${error.response.status}: ${error.response.data}`);
@@ -37,14 +42,13 @@ export const Register = () => {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    await handleUserRegister(newUser);
+    await handleUserRegister(user);
   };
 
   return (
     <Grid
       container
       style={{
-        overflow: "hidden",
         height: "91.3vh",
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -63,7 +67,12 @@ export const Register = () => {
         }}
       >
         <Typography variant="h4">REGISTRARSE</Typography>
-        <Box noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: "80%" }}>
+        <Box
+          component="form"
+          noValidate
+          onSubmit={handleSubmit}
+          sx={{ mt: 3, width: "80%" }}
+        >
           <RegisterForm />
           <Button
             type="submit"
