@@ -33,10 +33,10 @@ export const MobileMenu = ({
         <MenuItem onClick={() => handleNavigate("/about")}>
           <Typography textAlign="center">CONÓCENOS</Typography>
         </MenuItem>
-        <MenuItem onClick={() => handleNavigate("/activities")}>
+        <MenuItem onClick={() => handleNavigate("/about/activities")}>
           <Typography textAlign="center">ACTIVIDADES</Typography>
         </MenuItem>
-        <MenuItem onClick={() => handleNavigate("/")}>
+        <MenuItem onClick={() => handleNavigate("/about/nutrition")}>
           <Typography textAlign="center">NUTRICIÓN</Typography>
         </MenuItem>
       </Menu>
