@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cleanToken } from "../../../../core/slices/authSlice.js";
+import { cleanUser } from "../../../../core/slices/userSlice.js";
 
 export const UserMenu = ({ token }) => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export const UserMenu = ({ token }) => {
   const handleLogout = () => {
     if (anchorElUser) handleCloseUserMenu();
     dispatch(cleanToken());
+    dispatch(cleanUser());
     navigate("/");
   };
 
@@ -64,10 +66,10 @@ export const UserMenu = ({ token }) => {
             <MenuItem onClick={() => handleNavigate("/profile")}>
               <Typography textAlign="center">PERFIL</Typography>
             </MenuItem>
-            <MenuItem onClick={() => handleNavigate("/")}>
+            <MenuItem onClick={() => handleNavigate("/activities")}>
               <Typography textAlign="center">MIS CLASES</Typography>
             </MenuItem>
-            <MenuItem onClick={() => handleNavigate("/")}>
+            <MenuItem onClick={() => handleNavigate("/nutrition")}>
               <Typography textAlign="center">NUTRICIÓN</Typography>
             </MenuItem>
             <MenuItem onClick={handleLogout}>
