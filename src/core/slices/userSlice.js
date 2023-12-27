@@ -14,7 +14,8 @@ export const userSlice = createSlice({
       state.user = action.payload;
     },
     cleanUser: (state) => {
-      (state.authUser = ""), (state.user = "");
+      state.authUser = "";
+      state.user = "";
     },
   },
 });
