@@ -63,7 +63,7 @@ export const Register = () => {
           alignItems: "center",
           justifyContent: "center",
           border: "1px solid",
-          background: "#DCDCDC",
+          background: "#FFFFFF",
         }}
       >
         <Typography variant="h4">REGISTRARSE</Typography>

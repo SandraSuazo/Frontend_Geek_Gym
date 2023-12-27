@@ -13,7 +13,7 @@ export const DesktopMenu = ({ handleNavigate }) => {
         onClick={() => handleNavigate("/about")}
         sx={{
           my: 2,
-          color: "#DCDCDC",
+          color: "#FFFFFF",
           display: "block",
           "&:hover": {
             color: "#000000",
@@ -27,7 +27,7 @@ export const DesktopMenu = ({ handleNavigate }) => {
         onClick={() => handleNavigate("/activities")}
         sx={{
           my: 2,
-          color: "#DCDCDC",
+          color: "#FFFFFF",
           display: "block",
           "&:hover": {
             color: "#000000",
@@ -41,7 +41,7 @@ export const DesktopMenu = ({ handleNavigate }) => {
         onClick={() => handleNavigate("/")}
         sx={{
           my: 2,
-          color: "#DCDCDC",
+          color: "#FFFFFF",
           display: "block",
           "&:hover": {
             color: "#000000",

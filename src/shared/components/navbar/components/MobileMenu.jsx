@@ -11,7 +11,7 @@ export const MobileMenu = ({
   return (
     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
       <IconButton size="large" onClick={handleOpenNavMenu}>
-        <MenuIcon sx={{ background: "#DCDCDC" }} />
+        <MenuIcon sx={{ background: "#FFFFFF" }} />
       </IconButton>
       <Menu
         id="menu-appbar"
