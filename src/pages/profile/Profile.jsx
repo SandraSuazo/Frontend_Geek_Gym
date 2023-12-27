@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { authData } from "../../core/slices/authSlice.js";
 import { userData } from "../../core/slices/userSlice.js";
 import { setAuthUser, setUser } from "../../core/slices/userSlice.js";
@@ -9,6 +9,8 @@ import {
   modifyProfileUser,
 } from "../../shared/services/userApiCalls.js";
 import { EditProfileForm } from "./components/EditProfileForm.jsx";
+
+const backgroundImage = "gym_images/profile-background.jng.jpeg";
 
 export const Profile = () => {
   const { token } = useSelector(authData);
@@ -66,24 +68,29 @@ export const Profile = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Box
+    <Grid
+      container
+      style={{
+        height: "91.3vh",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        justifyContent: "flex-end",
+      }}
+    >
+      <Grid
+        item
+        sm={4.7}
         sx={{
-          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid",
+          background: "#FFFFFF",
         }}
       >
-        <Typography
-          variant="h4"
-          style={{
-            color: "#ad9859",
-          }}
-        >
-          Perfil
-        </Typography>
-        <Box component="form" noValidate sx={{ mt: 3 }}>
+        <Typography variant="h4">Perfil</Typography>
+        <Box component="form" noValidate sx={{ mt: 3, width: "80%" }}>
           <EditProfileForm
             formData={formData}
             setFormData={setFormData}
@@ -95,7 +102,7 @@ export const Profile = () => {
             fullWidth
             variant="contained"
             onClick={handleEditButton}
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, width: "80%" }}
           >
             Modificar Perfil
           </Button>
@@ -104,12 +111,12 @@ export const Profile = () => {
             fullWidth
             variant="contained"
             onClick={handleEditProfile}
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, width: "80%" }}
           >
             Guardar Cambios
           </Button>
         )}
-      </Box>
-    </Container>
+      </Grid>
+    </Grid>
   );
 };

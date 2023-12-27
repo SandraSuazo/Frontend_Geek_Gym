@@ -8,6 +8,12 @@ export const EditProfileForm = ({ formData, setFormData, isEditMode }) => {
     }));
   };
 
+  const getInputLabelProps = (value) => {
+    return value !== null && value !== ""
+      ? { shrink: true }
+      : { shrink: false };
+  };
+
   return (
     <>
       <Grid container spacing={2}>
@@ -18,10 +24,11 @@ export const EditProfileForm = ({ formData, setFormData, isEditMode }) => {
             id="name"
             name="name"
             type="text"
-            label="Nombre"
+            label="Nombre y apellidos"
             value={formData.name}
             onChange={(e) => handleChange("name", e.target.value)}
             disabled={!isEditMode}
+            InputLabelProps={getInputLabelProps(formData.name)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -35,6 +42,7 @@ export const EditProfileForm = ({ formData, setFormData, isEditMode }) => {
             value={formData.phone}
             onChange={(e) => handleChange("phone", e.target.value)}
             disabled={!isEditMode}
+            InputLabelProps={getInputLabelProps(formData.phone)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -48,6 +56,7 @@ export const EditProfileForm = ({ formData, setFormData, isEditMode }) => {
             value={formData.adress}
             onChange={(e) => handleChange("adress", e.target.value)}
             disabled={!isEditMode}
+            InputLabelProps={getInputLabelProps(formData.adress)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -61,6 +70,7 @@ export const EditProfileForm = ({ formData, setFormData, isEditMode }) => {
             value={formData.email}
             onChange={(e) => handleChange("email", e.target.value)}
             disabled={!isEditMode}
+            InputLabelProps={getInputLabelProps(formData.email)}
           />
         </Grid>
         {/* {isEditMode && (
