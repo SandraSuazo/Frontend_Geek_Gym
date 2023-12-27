@@ -10,6 +10,20 @@ export const DesktopMenu = ({ handleNavigate }) => {
       }}
     >
       <Button
+        onClick={() => handleNavigate("/")}
+        sx={{
+          my: 2,
+          color: "#FFFFFF",
+          display: "block",
+          "&:hover": {
+            color: "#000000",
+            backgroundColor: "#92ce04",
+          },
+        }}
+      >
+        INICIO
+      </Button>
+      <Button
         onClick={() => handleNavigate("/about")}
         sx={{
           my: 2,
@@ -24,7 +38,7 @@ export const DesktopMenu = ({ handleNavigate }) => {
         CONÓCENOS
       </Button>
       <Button
-        onClick={() => handleNavigate("/activities")}
+        onClick={() => handleNavigate("/about/activities")}
         sx={{
           my: 2,
           color: "#FFFFFF",
@@ -38,7 +52,7 @@ export const DesktopMenu = ({ handleNavigate }) => {
         ACTIVIDADES
       </Button>
       <Button
-        onClick={() => handleNavigate("/")}
+        onClick={() => handleNavigate("/about/nutrition")}
         sx={{
           my: 2,
           color: "#FFFFFF",
