@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-// import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LoginForm } from "./components/LoginForm.jsx";
@@ -12,7 +11,6 @@ import { setToken } from "../../core/slices/authSlice.js";
 const backgroundImage = "gym_images/login-background.jpg";
 
 export const Login = () => {
-  // const notify = (message) => toast.error(message);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,7 +28,6 @@ export const Login = () => {
       });
     } catch (error) {
       console.log(error);
-      // notify(`${error?.response.status}: ${error?.response.data}`);
     }
   };
 
