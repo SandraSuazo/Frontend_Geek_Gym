@@ -6,7 +6,7 @@ export const Home = () => {
       <Box position="relative">
         <img
           src="gym_images/home-image01.png"
-          alt="Fila de bicicletas"
+          alt="Row of people doing spinning"
           style={{ width: "100%", filter: "brightness(0.4)" }}
         />
         <Box
@@ -23,7 +23,10 @@ export const Home = () => {
           <Typography variant="h1" sx={{ fontWeight: "bold", my: 3 }}>
             ¿POR QUÉ GEEK GYM?
           </Typography>
-          <Typography sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+          <Typography
+            className="first-text"
+            sx={{ fontSize: "1.5rem", fontWeight: "bold" }}
+          >
             Juntos viviremos experiencias únicas. Te ayudaremos a construir la
             mejor versión de ti y a disfrutar de tu cuerpo y mente.{" "}
             <span style={{ color: "#92ce04" }}>
@@ -42,7 +45,7 @@ export const Home = () => {
         <Typography variant="h2" sx={{ mb: 3 }}>
           Quiénes somos...
         </Typography>
-        <Typography sx={{ fontSize: "1.2rem", mx: 5 }}>
+        <Typography className="second-text" sx={{ fontSize: "1.2rem", mx: 5 }}>
           Somos el gimnasio con la sala fitness más grande de Madrid, ubicado en
           el Ensanche de Vallecas. En
           <span style={{ color: "#92ce04" }}> Geek Gym</span> encontrarás un
@@ -61,7 +64,7 @@ export const Home = () => {
       <Box position="relative">
         <img
           src="gym_images/home-image02.png"
-          alt="Fila de bicicletas"
+          alt="Two people shaking hands"
           style={{ width: "100%", filter: "brightness(0.5)" }}
         />
         <Box
@@ -78,7 +81,10 @@ export const Home = () => {
           <Typography variant="h3" sx={{ fontWeight: "bold", my: 3 }}>
             Lo que nos hace únicos y diferentes
           </Typography>
-          <Typography sx={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+          <Typography
+            className="third-text"
+            sx={{ fontSize: "1.2rem", fontWeight: "bold" }}
+          >
             Tú decides cuándo vienes y cuándo te vas, pero...
             <span style={{ color: "#92ce04" }}> ¡El que prueba, REPITE!</span>
           </Typography>
