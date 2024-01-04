@@ -82,7 +82,7 @@ export const Home = () => {
             Tú decides cuándo vienes y cuándo te vas, pero...
             <span style={{ color: "#92ce04" }}> ¡El que prueba, REPITE!</span>
           </Typography>
-          <Typography
+          <Box
             sx={{ fontSize: "1.2rem", fontWeight: "bold", textAlign: "left" }}
           >
             <ul>
@@ -91,7 +91,7 @@ export const Home = () => {
               <li>Un equipo motivado a tu disposición</li>
               <li>Y miles de experiencias únicas</li>
             </ul>
-          </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
