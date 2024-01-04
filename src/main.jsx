@@ -6,13 +6,13 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.jsx";
 import store from "./core/store.js";
-import { themes } from "./shared/themes/themes.js";
+import { theme } from "./shared/themes/themes.js";
 
 const persistor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={themes}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
