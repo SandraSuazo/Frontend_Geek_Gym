@@ -72,6 +72,7 @@ export const Register = () => {
         >
           <RegisterForm />
           <Button
+            id="send-button"
             type="submit"
             fullWidth
             variant="contained"
