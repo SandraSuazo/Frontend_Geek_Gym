@@ -17,7 +17,7 @@ describe("Login Page Tests", () => {
   });
 
   it("Should fill out the login form and redirect to home", () => {
-    cy.get("input[name='email']").type("sandra.suazo@example.com");
+    cy.get("input[name='email']").type("prueba20240106@example.com");
     cy.get("input[name='password']").type("Secreto1!");
     cy.get("#send-button").click();
     cy.wait(300);
