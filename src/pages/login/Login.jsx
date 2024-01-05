@@ -70,6 +70,7 @@ export const Login = () => {
         >
           <LoginForm />
           <Button
+            id="send-button"
             type="submit"
             fullWidth
             variant="contained"
