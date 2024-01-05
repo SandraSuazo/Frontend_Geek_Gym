@@ -1,6 +1,7 @@
 describe("Home Page Tests", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173/");
+    cy.viewport(1440, 800);
   });
 
   it("should load the elements from the first box", () => {

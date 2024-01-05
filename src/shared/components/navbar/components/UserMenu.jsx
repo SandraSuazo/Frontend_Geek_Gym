@@ -70,7 +70,7 @@ export const UserMenu = ({ token }) => {
               <Typography textAlign="center">MIS CLASES</Typography>
             </MenuItem>
             <MenuItem onClick={() => handleNavigate("/nutrition")}>
-              <Typography textAlign="center">NUTRICIÓN</Typography>
+              <Typography textAlign="center">MI NUTRICIÓN</Typography>
             </MenuItem>
             <MenuItem onClick={handleLogout}>
               <Typography textAlign="center">LOGOUT</Typography>
