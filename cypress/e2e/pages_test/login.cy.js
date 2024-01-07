@@ -4,6 +4,16 @@ describe("Login Page Tests", () => {
     cy.viewport(1440, 800);
   });
 
+  it("Should display an error message on failed login", () => {
+    cy.intercept("POST", "/api/login", {
+      statusCode: 500,
+      body: "Internal Server Error",
+    });
+    cy.get("input[name='email']").type("usuario@example.com");
+    cy.get("input[name='password']").type("Secreto1!");
+    cy.get("#send-button").click();
+  });
+
   it("Should display the login page correctly", () => {
     cy.get("form").should("be.visible");
     cy.get("input[name='email']").should("be.visible");

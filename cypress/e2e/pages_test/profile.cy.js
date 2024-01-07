@@ -35,4 +35,13 @@ describe("Profile Page Tests", () => {
     cy.get("input[name='email']").should("not.be.disabled");
     cy.get("button:contains('Guardar Cambios')").should("be.visible").click();
   });
+
+  it("Should display an error message on failed profile update", () => {
+    cy.intercept("PUT", "/api/profile", {
+      statusCode: 500,
+      body: "Internal Server Error",
+    });
+    cy.get("button:contains('Modificar Perfil')").click();
+    cy.get("button:contains('Guardar Cambios')").should("be.visible").click();
+  });
 });

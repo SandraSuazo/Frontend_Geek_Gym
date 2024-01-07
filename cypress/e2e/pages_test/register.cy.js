@@ -4,6 +4,17 @@ describe("Register Page Tests", () => {
     cy.viewport(1440, 800);
   });
 
+  it("Should display an error message on failed registration", () => {
+    cy.intercept("POST", "/api/register", {
+      statusCode: 500,
+      body: "Internal Server Error",
+    });
+    cy.get("input[name='name']").type("Usuario Prueba");
+    cy.get("input[name='email']").type("usuario.prueba@example.com");
+    cy.get("input[name='password']").type("123");
+    cy.get("#send-button").click();
+  });
+
   it("Should display the registration page correctly", () => {
     cy.get("form").should("be.visible");
     cy.get("input[name='name']").should("be.visible");
