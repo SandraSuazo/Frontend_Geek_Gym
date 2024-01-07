@@ -17,6 +17,30 @@ describe("Register Page Tests", () => {
     cy.url().should("eq", "http://localhost:5173/login");
   });
 
+  it("Should have the correct styles for the registration form", () => {
+    cy.get("form").should("have.css", "background-color", "rgba(0, 0, 0, 0)");
+    cy.get("input[name='name']").should(
+      "have.css",
+      "border",
+      "0px none rgb(0, 0, 0)"
+    );
+    cy.get("input[name='email']").should(
+      "have.css",
+      "border",
+      "0px none rgb(0, 0, 0)"
+    );
+    cy.get("input[name='password']").should(
+      "have.css",
+      "border",
+      "0px none rgb(0, 0, 0)"
+    );
+    cy.get("#send-button").should(
+      "have.css",
+      "background-color",
+      "rgb(146, 206, 4)"
+    );
+  });
+
   it("Should fill out the registration form and navigate to home", () => {
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + 1);
@@ -31,7 +55,7 @@ describe("Register Page Tests", () => {
     cy.get("input[name='password']").type("Secreto1!");
     cy.get("#send-button").click();
     cy.wait(300);
-    cy.url().should("eq", "http://localhost:5173/");
+    cy.url().should("eq", "http://localhost:5173");
     cy.get("button:contains('ÁREA CLIENTES')").click();
     cy.get("#menu-appbar").should("be.visible");
     cy.get("li:contains('PERFIL')").click();
@@ -48,6 +72,6 @@ describe("Register Page Tests", () => {
     cy.get("button:contains('ÁREA CLIENTES')").click();
     cy.get("li:contains('LOGOUT')").click();
     cy.wait(300);
-    cy.url().should("eq", "http://localhost:5173/");
+    cy.url().should("eq", "http://localhost:5173");
   });
 });
