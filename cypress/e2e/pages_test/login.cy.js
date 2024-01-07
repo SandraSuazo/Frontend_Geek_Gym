@@ -16,6 +16,25 @@ describe("Login Page Tests", () => {
     cy.url().should("eq", "http://localhost:5173/register");
   });
 
+  it("Should have the correct styles for the login form", () => {
+    cy.get("form").should("have.css", "background-color", "rgba(0, 0, 0, 0)");
+    cy.get("input[name='email']").should(
+      "have.css",
+      "border",
+      "0px none rgb(0, 0, 0)"
+    );
+    cy.get("input[name='password']").should(
+      "have.css",
+      "border",
+      "0px none rgb(0, 0, 0)"
+    );
+    cy.get("#send-button").should(
+      "have.css",
+      "background-color",
+      "rgb(146, 206, 4)"
+    );
+  });
+
   it("Should fill out the login form and redirect to home", () => {
     cy.get("input[name='email']").type("prueba20240106@example.com");
     cy.get("input[name='password']").type("Secreto1!");
